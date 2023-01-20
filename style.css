@@ -1,0 +1,198 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ---------------------------------- Customization ---------------------------------- */
+/* variables */
+:root {
+  --sidebar-font-size: 20px;
+  --header-font-size: 25px;
+}
+
+/* box sizing setup */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* default font setup */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+}
+
+/* body */
+body {
+  background-color: gray;
+}
+
+/* board */
+.board {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 150px 1fr;
+}
+
+/* side bar */
+.sidebar {
+  background-color: #0081C9;
+
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--sidebar-font-size ) * 2);
+
+  font-size: var(--sidebar-font-size);
+
+  padding: var(--sidebar-font-size);
+
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.main-logo > a {
+  display: flex;
+  align-items: flex-end;
+
+  font-size: calc(var(--sidebar-font-size) * 2);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sidebar-font-size);
+}
+
+.configure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sidebar-font-size);
+}
+
+/* header */
+.header {
+  background-color: #FFC93C;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  padding: var(--header-font-size);
+
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.search {
+  grid-column: 1;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--header-font-size) * 0.2);
+}
+
+.search-bar input[type="text"] {
+  border: none;
+  border-radius: var(--header-font-size);
+
+  text-indent: calc(var(--header-font-size) * 0.5);
+  outline: none;
+
+  font-size: calc(var(--header-font-size) * 1);
+}
+
+.user-logo {
+  display: flex;
+}
+
+.user-status {
+  display: flex;
+  gap: var(--header-font-size);
+}
+
+.user-status-logo {
+  width: 80px;
+  height: 80px;
+
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-status-logo > input {
+  margin-left: -30px;
+  margin-top: -10px;
+}
+
+.user-description {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--header-font-size) * 0.5);
+
+  font-weight: bold;
+}
+
+.user-description > p {
+  font-size: calc(var(--header-font-size));
+}
+
+.user-description > span {
+  font-size: calc(var(--header-font-size) * 1.5)
+}
+
+/* main */
+/* footer */
