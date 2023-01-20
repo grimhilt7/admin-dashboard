@@ -3,48 +3,129 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* ---------------------------------- Customization ---------------------------------- */
@@ -52,6 +133,7 @@ table {
 :root {
   --sidebar-font-size: 20px;
   --header-font-size: 25px;
+  --main-font-size: 10px;
 }
 
 /* box sizing setup */
@@ -59,34 +141,47 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 /* default font setup */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
 }
 
 /* body */
 body {
-  background-color: gray;
+  background-color: #f7f5eb;
 }
 
 /* board */
 .board {
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 150px 1fr;
+  grid-template-rows: 200px 1fr;
+
+  height: 1000px;
+}
+
+/* footer */
+.footer {
+  background-color: lightgray;
+  text-align: center;
+  padding: 10px;
+  font-size: 10px;
 }
 
 /* side bar */
 .sidebar {
-  background-color: #0081C9;
+  background-color: #0081c9;
 
   display: flex;
   flex-direction: column;
-  gap: calc(var(--sidebar-font-size ) * 2);
+  gap: calc(var(--sidebar-font-size) * 2);
 
   font-size: var(--sidebar-font-size);
 
@@ -122,7 +217,7 @@ body {
 
 /* header */
 .header {
-  background-color: #FFC93C;
+  background-color: #ffc93c;
 
   grid-column: 2;
   grid-row: 1;
@@ -153,11 +248,21 @@ body {
   text-indent: calc(var(--header-font-size) * 0.5);
   outline: none;
 
-  font-size: calc(var(--header-font-size) * 1);
+  font-size: calc(var(--header-font-size));
 }
 
-.user-logo {
+.interact {
+  grid-row: 2;
+  align-self: end;
+
   display: flex;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  gap: calc(var(--header-font-size) * 0.5);
+  align-items: center;
 }
 
 .user-status {
@@ -165,16 +270,17 @@ body {
   gap: var(--header-font-size);
 }
 
-.user-status-logo {
+.user-logo {
   width: 80px;
   height: 80px;
 
   overflow: hidden;
   border-radius: 50%;
+  border: 3px solid white;
 }
 
-.user-status-logo > input {
-  margin-left: -30px;
+.user-logo > input {
+  margin-left: -40px;
   margin-top: -10px;
 }
 
@@ -187,12 +293,103 @@ body {
 }
 
 .user-description > p {
-  font-size: calc(var(--header-font-size));
+  font-size: calc(var(--header-font-size) * 0.6);
 }
 
 .user-description > span {
-  font-size: calc(var(--header-font-size) * 1.5)
+  font-size: calc(var(--header-font-size) * 1.5);
+}
+
+.interact-buttons {
+  align-self: flex-end;
+}
+
+.interact-buttons > button {
+  background-color: #ffffff;
+
+  border: none;
+  border-radius: 20px;
+
+  width: calc(var(--header-font-size) * 4);
+  height: var(--header-font-size);
+}
+
+.interact-buttons > button:hover {
+  cursor: pointer;
 }
 
 /* main */
-/* footer */
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  padding: calc(var(--main-font-size) * 3) calc(var(--main-font-size) * 2);
+}
+
+.title {
+  font-size: calc(var(--main-font-size) * 2.5);
+  font-weight: bold;
+}
+
+.projects {
+  grid-column: 1;
+  grid-row: 1 / -1;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--main-font-size);
+
+  padding: var(--main-font-size);
+}
+
+.projects .panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: calc(var(--main-font-size) * 2.5);
+}
+
+.card {
+  /* border: 1px solid black; */
+  border-radius: var(--main-font-size);
+  padding: calc(var(--main-font-size) * 4) calc(var(--main-font-size) * 2);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--main-font-size);
+
+  background-color: #ffffff;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 1px 5px 20px gray;
+  transition: box-shadow 0.3s;
+}
+
+.card > p {
+  font-size: calc(var(--main-font-size) * 2);
+  font-weight: bold;
+}
+
+.card > span {
+  font-size: var(--main-font-size);
+  flex: 1;
+}
+
+.announcements {
+  grid-column: 2;
+  grid-row: 1;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.trending {
+  grid-column: 2;
+  grid-row: 2;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
